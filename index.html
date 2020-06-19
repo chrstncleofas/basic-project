@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body id="body">
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="4" id="screen">
+                    <p id="result">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class="reset-color" onclick="pushBtn(this);">C</button></td>
+                <td><button class="light-blue" onclick="pushBtn(this);">%</button></td>
+                <td><button class="light-blue" onclick="pushBtn(this);">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">7</button></td>
+                <td><button onclick="pushBtn(this);">8</button></td>
+                <td><button onclick="pushBtn(this);">9</button></td>
+                <td><button onclick="pushBtn(this);" class="light-blue">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">4</button></td>
+                <td><button onclick="pushBtn(this);">5</button></td>
+                <td><button onclick="pushBtn(this);">6</button></td>
+                <td><button onclick="pushBtn(this);" class="light-blue">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);">1</button></td>
+                <td><button onclick="pushBtn(this);">2</button></td>
+                <td><button onclick="pushBtn(this);">3</button></td>
+                <td><button onclick="pushBtn(this);" class="light-blue">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="pushBtn(this);" class="radius-left">0</button></td>
+                <td><button onclick="pushBtn(this);">.</button></td>
+                <td colspan="2"><button onclick="pushBtn(this);" class="light-blue radius-right">=</button></td>
+            </tr>
+        </table>
+        
+        <script>
+            // code para mag function
+            var result = document.getElementById('result');
+
+            var pushBtn = function(obj){
+                var pushed = obj.innerHTML;
+
+                if(pushed == '='){
+                    // Calculate
+                    result.innerHTML = eval(result.innerHTML);
+                }else if (pushed == 'C'){
+                    // Para Mabura
+                    result.innerHTML = '0';
+                }else{
+                    if (result.innerHTML == '0'){
+                        result.innerHTML = pushed;
+                    }else{
+                        result.innerHTML += pushed;
+                    }
+                }
+
+            }
+        </script>
+
+    </div>
+</body>
+</html>
